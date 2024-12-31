@@ -27,10 +27,36 @@ This project is designed to streamline hospital data management and make adminis
 
 ### Step 1: Install MySQL
 1. Download and install MySQL Server from the [official MySQL downloads page](https://dev.mysql.com/downloads/installer/).
-2. Set up MySQL on your machine.
+2. Set up MySQL on your machine and create a new database.
 
-### Step 2: Install MySQL Connector for Python
-To connect to MySQL from Python, you need to install the MySQL connector. Run the following command:
+### Step 2: Create Database and Tables
+After installing MySQL, log in to the MySQL console and create a new database named `hospital`. Use the following SQL commands to create the necessary tables for patients, doctors, and appointments.
 
-```bash
-pip install mysql-connector
+```sql
+CREATE DATABASE hospital;
+
+USE hospital;
+
+CREATE TABLE patient (
+  P_no INT PRIMARY KEY,
+  Name VARCHAR(100),
+  Mobile_no VARCHAR(15),
+  Address VARCHAR(255),
+  Room_number VARCHAR(20)
+);
+
+CREATE TABLE doctor (
+  S_no INT PRIMARY KEY,
+  Name VARCHAR(100),
+  Department VARCHAR(50),
+  Mobile_no VARCHAR(15),
+  Address VARCHAR(255)
+);
+
+CREATE TABLE appointment (
+  A_no INT PRIMARY KEY,
+  Patient_Name VARCHAR(100),
+  Doctor_Name VARCHAR(100),
+  Mobile_no VARCHAR(15),
+  Address VARCHAR(255)
+);
